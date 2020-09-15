@@ -51,7 +51,7 @@ sudo apt install xorg    ### x11 server to allow for a graphic environment
 
 sudo apt install openbox obconf obmenu     ### install openbox, its configureation files and its menu
 
-sudo apt install lightdm lightdm-gtk-greeter firefox nano leafpad xterm terminator nitrogen gnome-software ark pcmanfm  ### these are some useful apps to get things going. It has the lightdm login manager, a terminal emulator and a back up just incase, nano to edit files in terminal, nitrogen for wallpapers, gnome-software for a software center, ark for a manager, pcmanfm as a graphical file explorer
+sudo apt install tint2 lightdm lightdm-gtk-greeter firefox nano leafpad xterm terminator nitrogen gnome-software ark pcmanfm  ### these are some useful apps to get things going. It has the lightdm login manager, a terminal emulator and a back up just incase, nano to edit files in terminal, nitrogen for wallpapers, gnome-software for a software center, ark for a manager, pcmanfm as a graphical file explorer
 
 ### reboot and see if you can login to openbox. you should have to fill in your password via the lightdm gtk greeter.
 
