@@ -1,0 +1,78 @@
+### This is a guide to how i got my ubuntu minimal openbox going. 
+### Its the basics. I do not own any of the code, commands, programs etc. 
+### This is designed as a guide and to  pay respect to the resources that helped me. 
+### Please look up the references and support them if you so wish. Use and follow this guide at your own risk and responsibility.  
+### Be advised, spelling errors are prone .... im not perfect and its too late to review this lol.
+
+
+Reference:
+
+minimal ubuntu 18.04 iso and documentation     https://help.ubuntu.com/community/Installation/MinimalCD
+
+WEbsite that has a tutorial     https://www.ubuntuopenbox.com/
+
+For extra insight     https://wiki.archlinux.org/
+
+Setting up a Minimalistic Ubuntu Installation - Leran Linux tv   https://www.youtube.com/watch?v=c2VgacplI_o
+creating a minimal ubuntu gnome install - Leran Linux tv:     https://www.youtube.com/watch?v=lzLlFmiYrBQ&t=604s
+
+Distrotube install and configure openbox     https://www.youtube.com/watch?v=GE5qNANComM&t=1510s  
+                                             https://www.youtube.com/watch?v=_FZCXVgiORA&t=26s
+
+obmenu generator files     https://github.com/trizen/obmenu-generator
+
+https://www.youtube.com/watch?v=gFw11OW0IHU
+
+https://sysdfree.wordpress.com/2018/02/15/165/#:~:text=Update%20package%20list%2C%20install%20the,%2Dget%20install%20obmenu%2Dgenerator%20. 
+
+
+###   Method that was used: 
+
+
+can get minimal iso from:
+
+https://help.ubuntu.com/community/Installation/MinimalCD
+
+### iso was burnt to usb and used as an installation medium
+
+### Prompts was followed until option to select desktop environments was presented. Here,  NOTHING was selected and continued with install.
+
+### When install was done, system was rebooted (virtual machine or computer or laptop) and instsallation usb with iso was removed.
+
+### loged in by typing in  username, then password
+
+### First and most imoprtant: 
+
+sudo apt update  ### to update the system 
+
+## Then
+
+sudo apt install xorg    ### x11 server to allow for a graphic environment
+
+sudo apt install openbox obconf obmenu     ### install openbox, its configureation files and its menu
+
+sudo apt install lightdm lightdm-gtk-greeter firefox nano leafpad xterm terminator nitrogen gnome-software ark pcmanfm  ### these are some useful apps to get things going. It has the lightdm login manager, a terminal emulator and a back up just incase, nano to edit files in terminal, nitrogen for wallpapers, gnome-software for a software center, ark for a manager, pcmanfm as a graphical file explorer
+
+### reboot and see if you can login to openbox. you should have to fill in your password via the lightdm gtk greeter.
+
+
+### install of obmenu generator. this allows for icons in openbox menu and eliminates apps from being in the menu if they are not already installed.
+
+### to do this the ffg comands was used:
+
+sudo apt install make git cpanminus libgtk2-perl
+
+git clone git://github.com/trizen/obmenu-generator
+    
+sudo cp obmenu-generator/obmenu-generator /usr/bin
+    
+sudo cp -r obmenu-generator/schema.pl ~/.config/obmenu-generator
+    
+sudo cpanm Linux::DesktopFiles
+    
+sudo cpanm Data::Dump
+    
+sudo chmod 777 /usr/bin/obmenu-generator
+
+obmenu-generator -p -i
+
